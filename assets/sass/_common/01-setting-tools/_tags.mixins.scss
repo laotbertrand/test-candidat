@@ -1,0 +1,26 @@
+@mixin set-small(){
+    border-radius: .75rem;
+    padding: get-space(2XS) get-space(M);
+}
+@mixin set-medium(){
+    border-radius: 1rem;
+    padding: get-space(XS) get-space(M);
+}
+@mixin set-large(){
+    border-radius: 1.25rem;
+    padding: get-space(S) get-space(M);
+}
+@mixin set-selected-light(){
+    color:$color-tag-light;
+    background-color:$color-tag-darkgrey;
+    border-color:$color-tag-darkgrey;
+}
+@mixin set-selected-dark(){
+    color:$color-tag-darkgrey;
+    background-color:$color-tag-light;
+}
+@mixin set-selected-danger(){
+    color:$color-tag-light;
+    border-color:$color-tag-light;
+    background-color:$color-tag-danger;
+}

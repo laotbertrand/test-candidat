@@ -1,0 +1,66 @@
+.km-checkbox-wrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    position: relative;
+    // Element
+    &__input{
+        @include resetInput;
+        width: pxToRem(18);
+        height: pxToRem(18);
+        border: 2px solid $color-form-checkbox-border ;
+        border-radius: $radius-m;
+        cursor: pointer;
+        flex: 0 0 auto;
+        &.is-valid{
+            @include inputValidStyle;
+        }
+        &.is-invalid{
+            @include inputInvalidStyle;
+        }
+        &:valid, &:invalid {
+            box-shadow: none;
+        }
+        &:focus,
+        &:focus:checked{
+            @include inputFocusStyle;
+        }
+        &:checked{
+            background: $color-form-checkbox-background-is-checked;
+            @include inputCheckedStyle;
+        }
+        &:disabled{
+            @include inputDisabledStyle;
+        }
+    }
+    // Element
+    &__ico{
+        position: absolute;
+        left: 1px;
+        top: 50%;
+        transform: translateY(-50%);
+        fill: $white;
+        display: none;
+        pointer-events: none;
+        :checked ~ & {
+            display: block;
+        }
+    }
+    // Element
+    &__label{
+        @include labelStyle;
+        margin : 0 0 0 get-space(S);
+        cursor: pointer;
+        :checked ~ &{
+            @include labelCheckedStyle;
+        }
+        :hover ~ &{
+            @include labelHoverStyle;
+        }
+    }
+
+    &__suffix-label {
+        color: $grey-500;
+        cursor: pointer;
+    }
+}

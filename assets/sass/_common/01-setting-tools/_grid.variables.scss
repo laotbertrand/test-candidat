@@ -1,0 +1,28 @@
+// ----- 2.0 ------------------------------------------------------------------ //
+
+/*  Variables columns width
+----------------------------------------------------------------------------- */
+$width-column-L      : 51;
+$width-column-XL     : 66;
+$width-column-XXL    : 79;
+
+/*  Variables Gutter width
+----------------------------------------------------------------------------- */
+$width-gutter-S      : 16;
+$width-gutter-M      : 32;
+$width-gutter-L      : 32;
+$width-gutter-XL     : 32;
+$width-gutter-XXL    : 32;
+
+/*  Variables Gutter inner width
+----------------------------------------------------------------------------- */
+$width-gutter-inner-S      : 16;
+$width-gutter-inner-M      : 16;
+$width-gutter-inner-L      : 16;
+$width-gutter-inner-XL     : 16;
+$width-gutter-inner-XXL    : 32;
+
+
+/*  Custom breakpoint for long support
+----------------------------------------------------------------------------- */
+$lt-m : "all and (max-width: #{map-get($breakpoints, m) * 1px})"

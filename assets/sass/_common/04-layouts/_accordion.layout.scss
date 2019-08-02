@@ -1,0 +1,9 @@
+.kl-accordion {
+    .is-collapsed {
+        padding-top: 0;
+        padding-bottom: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 2s ease-in-out;
+    }
+}

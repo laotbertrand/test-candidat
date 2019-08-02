@@ -1,0 +1,22 @@
+.kl-blade{
+    padding-bottom: get-space(XS);
+    &--figure{
+        position: relative;
+        padding: 0;
+        &:after{
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+    }
+    &--flag{
+        margin-left: auto;
+    }
+    &--reviews{
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        color: $grey-700;
+        font-size: get-font-size('text', xs);
+    }
+}

@@ -1,0 +1,61 @@
+/**
+* Utilities
+* Allow you to apply font-size only using one css class
+* Allow you to apply different font-size depending on breakpoint 
+*
+* @example scss
+* <div class="ku-fs-s">Text small</div>
+*/
+@each $name, $value in $font-size {
+
+    .ku-fs-#{$name} {
+        font-size: get-font-size('text', $name);
+    }
+}
+
+/**
+* Utilities
+* Allow you to apply font-weight only using one css class
+* Allow you to apply different font-weight depending on breakpoint 
+*
+* @example scss
+* <div class="ku-fw-bold">Text bold</div>
+*/
+@each $weight, $value in $font-weight {
+
+    .ku-fw-#{$weight} {
+        font-weight: get-font-weight(#{$weight});
+    }
+}
+
+/**
+* Utilities
+* Allow you to apply text-align only using one css class
+*
+* @example scss
+* <div class="ku-fa-center">Text align center</div>
+*/
+.ku-fa-left {
+    text-align: left;
+}
+
+.ku-fa-right {
+    text-align: right;
+}
+
+.ku-fa-center {
+    text-align: center;
+}
+
+
+
+/**
+* Utilities
+* Allow you to apply italic font-style only using one css class
+*
+* @example scss
+* <div class="ku-italic">Text italic</div>
+*/
+.ku-italic {
+    font-style: italic;
+}

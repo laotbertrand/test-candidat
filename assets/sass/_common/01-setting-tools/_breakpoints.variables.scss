@@ -1,0 +1,11 @@
+$breakpoints : (
+    m : 750,
+    l : 993,
+    xl : 1201,
+    xxl : 1401
+);
+
+$from-m : "all and (min-width: #{map-get($breakpoints, m) * 1px})";
+$from-l : "all and (min-width: #{map-get($breakpoints, l) * 1px})"; 
+$from-xl : "all and (min-width: #{map-get($breakpoints, xl) * 1px})";
+$from-xxl : "all and (min-width: #{map-get($breakpoints, xxl) * 1px})";

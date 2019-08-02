@@ -1,0 +1,220 @@
+$overlay : rgba(0, 38, 58, 0.8); 
+$popin-shadow : rgba(0, 0, 0, 0.35); 
+
+  // Overlay
+  .kl-popin-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    // bottom: 0;  
+    left: 0;
+    height: 100vh;
+    background-color: $overlay;
+    z-index: 298;
+    cursor: pointer;
+
+    &.is-showing {
+      animation: OverlayShow 400ms ease-in-out forwards;
+    }
+    &.is-hiding {
+      animation: OverlayHide 400ms ease-in-out forwards;
+    }
+    &.is-visible {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  }
+
+
+  // Popin container
+  .kl-popin {
+    position: fixed;
+    z-index: 300;
+    left: 0;
+    bottom: 0;    
+    max-height: 90vh;
+    @include set-grid-container('l');
+
+    @media #{$from-l} {
+      left: 50%;
+      top: 50%;
+      bottom: auto;
+      transform: translateX(-50%) translateY(-50%);
+      pointer-events: none;
+      max-height: 100vh;
+    }
+
+    &--fullscreen {
+      height: 100%;
+      max-height: 100%;
+      .kl-popin__inner {
+        height: 100vh;
+        max-height: 100vh;
+      }
+      @media #{$from-l} {
+        height: auto;
+        .kl-popin__inner {
+          height: auto;
+        }
+      }
+    }
+
+    // Popin content
+    &__inner {
+      position: relative;
+      box-shadow: 0 2px 10px 0 $popin-shadow;
+      text-align: left;
+      background: $white;
+      pointer-events: auto;
+      max-height: 90vh;
+      padding: get-space(3XL) 0;
+      @media #{$from-l} {
+        border-radius: $radius-m;
+      }
+    }
+
+      // Popin head (close button, title, subtitle)
+      &__header {
+        margin-bottom: get-space(M);
+        padding: 0 get-space(3XL);
+      }
+        &__close {      
+          position: absolute;
+          top: get-space(L);
+          right: get-space(L);
+          cursor: pointer;
+          fill: $grey-800;
+          background: none;
+        }
+        &__title {
+          color: $text-999;
+        }
+        &__subtitle {
+          color: $text-700;
+        }
+
+
+      // Popin content
+      &__body {
+        padding: 0 get-space(3XL);
+        overflow: auto;
+        transition: opacity 300ms ease;
+        scrollbar-width: thin;
+      }
+      // Popin footer (Button, callToAction)
+      &__footer {
+        padding: 0 get-space(3XL);
+        margin-top: get-space(L);
+        text-align: center;
+        transition: opacity 300ms ease;
+      }
+
+  // state
+  &.is-showing {
+    animation: PopinShow 400ms ease-in-out forwards;
+    @media #{$from-l} {
+      animation: PopinShowDesk 400ms ease-in-out forwards;
+    }
+    .kl-popin__body,
+    .kl-popin__footer {
+      opacity: 0;
+    }
+  }
+  &.is-hiding {
+    animation: PopinHide 400ms ease-in-out forwards;
+    @media #{$from-l} {
+      animation: PopinHideDesk 400ms ease-in-out forwards;
+    }
+  }
+
+
+}
+
+
+  
+
+// Animation keyframe delay = 400ms
+@keyframes PopinShow {
+  from {
+    transform: translateY(100%);
+   
+    visibility: hidden;
+  }
+  to {
+    transform: translateY(0);
+   
+    visibility: visible;
+  }
+}
+@keyframes PopinHide {
+  from {
+    transform: translateY(0);
+    
+    visibility: visible;
+  }
+  to {
+    transform: translateY(100%);
+    
+    visibility: hidden;
+  }
+}
+
+@keyframes PopinShowDesk {
+  from {
+    
+      transform: translateX(-100vw) translateY(-50%) scale(0);
+      transform: translateX(-50%) translateY(-50%) scale(0);
+      transform: translateX(-50%) translateY(-100vh) scale(0);
+    
+    visibility: hidden;
+  }
+  to {
+   
+      transform: translateX(-50%) translateY(-50%) scale(1);
+      transform: translateX(-50%) translateY(-50%) scale(1);
+      transform: translateX(-50%) translateY(-50%) scale(1);
+    
+    visibility: visible;
+  }
+}
+@keyframes PopinHideDesk {
+  from {
+    
+      transform: translateX(-50%) translateY(-50%) scale(1);
+      transform: translateX(-50%) translateY(-50%) scale(1);
+      transform: translateX(-50%) translateY(-50%) scale(1);
+    
+    visibility: visible;
+  }
+  to {
+   
+      transform: translateX(100vw) translateY(-50%) scale(0);
+      transform: translateX(-50%) translateY(-50%) scale(0);
+      transform: translateX(-50%) translateY(100vh) scale(0);
+    
+    visibility: hidden;
+  }
+}
+
+@keyframes OverlayShow {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes OverlayHide {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

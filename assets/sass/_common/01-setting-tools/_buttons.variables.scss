@@ -1,0 +1,22 @@
+$border-button: 2;
+
+$default-theme: (
+    color : $primary-01-500,
+    color-disabled : $primary-01-200,
+    color-hover : $primary-01-600,
+    color-active : $primary-01-700 
+);
+
+$campus-theme: (
+    color : $primary-02-600,
+    color-disabled : $primary-02-300,
+    color-hover : $primary-02-700,
+    color-active : $primary-02-800 
+);
+
+$grey-theme: (
+    color : $grey-700,
+    color-disabled : $grey-400,
+    color-hover : $grey-800,
+    color-active : $grey-900 
+);

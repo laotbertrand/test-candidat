@@ -1,0 +1,6 @@
+.ka-flag{
+    padding: 0 get-space(XS);
+    &--new{
+        border: $border-s solid $black;
+    }
+}

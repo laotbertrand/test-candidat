@@ -1,0 +1,196 @@
+.kl-tooltip {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+
+    &__pointer {
+        position: absolute;
+        width: 0;
+        height: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 10px solid $black;
+        border-color: $white;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        border-radius: 4px;
+        top: 2.5rem;
+        left: -2px;
+        box-shadow: 5px -4px 5px -5px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+
+
+        @media #{$from-m} {
+            top: 50%;
+            left: auto;
+            right: -10px;
+            box-shadow: -5px -5px 5px -4px rgba(0, 0, 0, 0.2);
+        }
+
+        &--top {
+            top: 2.5rem;
+            box-shadow: 5px -4px 5px -5px rgba(0, 0, 0, 0.2);
+
+            @media #{$from-m} {
+                top: inherit;
+                right: 1.15rem;
+                bottom: 1.2rem;
+                left: inherit;
+                box-shadow: -6px 5px 5px -5px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        &--bottom {
+            top: 2.5rem;
+            box-shadow: 5px -4px 5px -5px rgba(0, 0, 0, 0.2);
+            right: 1.15rem;
+        }
+    }
+
+    &__button {
+        background: transparent;
+        font-size: get-font-size('text', s);
+        margin-right: get-space(S);
+        fill: $grey-300;
+        cursor: pointer;
+    }
+
+    &__close {
+        position: absolute;
+        top: 0.8rem;
+        right: 0.8rem;
+        fill: $color-grey-800;
+        background: none;
+        width: 1rem;
+        height: 1rem;
+        display: flex;
+        cursor: pointer;
+    }
+
+    &__wrapper {
+        position: absolute;
+        z-index: 1;
+        background: $white;
+        padding: get-space(L);
+        min-width: 320px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.20);
+        border-radius: 4px;
+        left: -220px;
+        min-width: 90vw;
+        max-width: 320px;
+        top: 2.2rem;
+
+        @media #{$from-m} {
+            left: 100%;
+            margin-left: inherit;
+            min-width: 320px;
+            top: inherit;
+        }
+
+        &--top {
+            top: 2.2rem;
+
+            @media #{$from-m} {
+                bottom: 2.2rem;
+                left: -1rem;
+                margin-left: inherit;
+                top: inherit;
+            }
+        }
+
+        &--bottom {
+            top: 2.2rem;
+
+            @media #{$from-m} {
+                top: 2.2rem;
+                left: -1rem;
+                margin-left: inherit;
+            }
+        }
+    }
+
+    &__content {
+        word-wrap: break-word;
+    }
+
+    &--dark {
+
+        .kl-tooltip__wrapper{
+            background: $grey-800;
+        }
+
+        .kl-tooltip__pointer {
+            border-color: $grey-800;
+        }
+
+        .kl-tooltip__close {
+            fill: $white;
+        }
+
+        .kl-tooltip__content {
+            color: $white;
+        }
+    }
+}
+
+
+/** pour ie11  */
+
+_:-ms-fullscreen,
+:root {
+    .kl-tooltip {
+        &__wrapper {
+            @media #{$from-m} {
+                top: inherit;
+                transform: translateY(-52%);
+            }
+
+            &--top {
+                @media #{$from-m} {
+                    transform: none;
+                }
+            }
+
+            &--bottom {
+                @media #{$from-m} {
+                    top: 2.2rem;
+                    transform: none;
+                }
+            }
+        }
+    }
+}
+
+
+/** HTML Layout/Tooltips
+<span class="kl-tooltip js-tooltip1">
+    <button class="js-tooltip__button kl-tooltip__button">
+        <span class="js-tooltip__pointer kl-tooltip__pointer"></span>
+        <svg class="ku-icon-24 "><use xlink:href="#Navigation_Display_Close_24px" href="#Navigation_Display_Close_24px"></use></svg>
+    </button>
+    <aside class="js-tooltip__wrapper kl-tooltip__wrapper" tabindex="0" aria-hidden="false">
+        <button class="js-tooltip__close kl-tooltip__close">
+        <svg class="ku-icon-16 "><use xlink:href="#Navigation_Display_Close_16px" href="#Navigation_Display_Close_16px"></use></svg>
+        </button>
+        <div class="m-mon-context__content kl-tooltip__content">
+            On appelle combles perdus des combles qu'on ne peut ou ne veut pas aménager à cause d’une hauteur libre moyenne insuffisante, ou d’une mauvaise disposition des bois de la charpente.
+        </div>
+    </aside>
+</span>
+<span class="kl-tooltip js-tooltip4">
+    <button class="js-tooltip__button kl-tooltip__button">
+        <span class="js-tooltip__pointer kl-tooltip__pointer kl-tooltip__pointer--dark kl-tooltip__pointer--bottom"></span>
+        <svg class="ku-icon-24 "><use xlink:href="#Navigation_Display_Close_24px" href="#Navigation_Display_Close_24px"></use></svg>
+    </button>
+    <aside class="js-tooltip__wrapper kl-tooltip__wrapper kl-tooltip__wrapper--dark kl-tooltip__wrapper--bottom" tabindex="0" aria-hidden="false">
+        <button class="js-tooltip__close kl-tooltip__close">
+        <svg class="ku-icon-16 "><use xlink:href="#Navigation_Display_Close_16px" href="#Navigation_Display_Close_16px"></use></svg>
+        </button>
+        <div class="m-mon-context__content kl-tooltip__content">
+            On appelle combles perdus des combles qu'on ne peut ou ne veut pas aménager à cause d’une hauteur libre moyenne insuffisante, ou d’une mauvaise disposition des bois de la charpente.
+        </div>
+    </aside>
+ </span>
+ */

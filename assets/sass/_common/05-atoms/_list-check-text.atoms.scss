@@ -1,0 +1,6 @@
+.ka-list-check-text{
+    font-size: get-font-size('text', xs);
+    &__icon{
+        fill: $primary-01-500;
+    }
+}

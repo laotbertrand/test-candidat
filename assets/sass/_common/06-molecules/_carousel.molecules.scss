@@ -1,0 +1,185 @@
+.km-carousel {
+  position: relative;
+  height: auto;
+  transition: all 400ms ease-in-out;
+
+  &--controls-hidden {
+    @media #{$from-l}{
+      .km-carousel__controls {
+        opacity: 0;
+      }
+      &:hover, &:focus {
+        .km-carousel__controls {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    transition: all 400ms ease-in-out;
+    @media   #{$from-l}{
+      height: auto;
+      overflow: visible;
+    }
+    .ka-nav-button{
+      position: absolute;
+      &:first-child{
+         left: 1%;
+      }
+      &:last-child{
+          right: 1%;
+      }
+    }
+  }
+
+  &__img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  .tns-nav {
+    text-align: center;
+    bottom: 1rem;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    > [aria-controls] {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      margin: 0 5px;
+      border-radius: 50%;
+      background: $white;
+      border: $border-s solid $grey-200;
+    }
+    > .tns-nav-active {
+      background: $primary-01-500;
+    }
+  }
+
+  &--bevel {
+    &-right-s {
+      &::after {
+        -webkit-clip-path: polygon(0 96%, 0% 100%, 100% 100%);
+        clip-path: polygon(0 96%, 0% 100%, 100% 100%);
+        @include set-bevel;
+      }
+    }
+    &-left-s {
+      &::after {
+        -webkit-clip-path: polygon(0 100%, 100% 96%, 100% 100%);
+        clip-path: polygon(0 100%, 100% 96%, 100% 100%);
+        @include set-bevel;
+      }
+    }
+    &-right-l {
+      &::after {
+        -webkit-clip-path: polygon(0 100%, 0 92%, 100% 100%);
+        clip-path: polygon(0 100%, 0 92%, 100% 100%);
+        @include set-bevel;
+      }
+    }
+    &-left-l {
+      &::after {
+        -webkit-clip-path: polygon(0 100%, 100% 92%, 100% 100%);
+        clip-path: polygon(0 100%, 100% 92%, 100% 100%);
+        @include set-bevel;
+      }
+    }
+  }
+
+}
+
+// /* HTML bevel/carousel
+
+//Carousel without bevel
+//<div class="km-carousel">
+//  <nav class="km-carousel__controls kl-hidden-accessibility" id="my-carousel-controls" aria-label="Carousel Navigation" tabindex="0">
+//    <button data-controls="prev" aria-controls="customize" tabindex="-1" class="ka-nav-button ka-nav-button--l" type="button"><@icons.icon iconPath="Navigation_Arrow_Arrow__Left_16px"  /></button>
+//    <button data-controls="next" aria-controls="customize" tabindex="-1" class="ka-nav-button ka-nav-button--l" type="button"><@icons.icon iconPath="Navigation_Arrow_Arrow__Right_16px" /></button>
+//  </nav>
+//  <ul>
+//    <li class="km-carousel__item">
+//      <img class="km-carousel__img tns-lazy-img" src="" data-src="https://source.unsplash.com/collection/1891993/600x600" alt="" width="" height="auto">
+//    </li>
+//    <li class="km-carousel__item">
+//      <img class="km-carousel__img tns-lazy-img" src="" data-src="https://source.unsplash.com/collection/993239/600x600" alt="" width="" height="auto">
+//    </li>
+//  </ul>
+// </div>
+//
+//Carousel with small left bevel
+//<div class="km-carousel km-carousel--bevel-left-s">
+//  <nav class="km-carousel__controls kl-hidden-accessibility" id="my-carousel-controls" aria-label="Carousel Navigation" tabindex="0">
+//    <button data-controls="prev" aria-controls="customize" tabindex="-1" class="ka-nav-button ka-nav-button--l" type="button"><@icons.icon iconPath="Navigation_Arrow_Arrow__Left_16px"  /></button>
+//    <button data-controls="next" aria-controls="customize" tabindex="-1" class="ka-nav-button ka-nav-button--l" type="button"><@icons.icon iconPath="Navigation_Arrow_Arrow__Right_16px" /></button>
+//  </nav>
+//  <ul>
+//    <li class="km-carousel__item">
+//      <img class="km-carousel__img tns-lazy-img" src="" data-src="https://source.unsplash.com/collection/1891993/600x600" alt="" width="" height="auto">
+//    </li>
+//    <li class="km-carousel__item">
+//      <img class="km-carousel__img tns-lazy-img" src="" data-src="https://source.unsplash.com/collection/993239/600x600" alt="" width="" height="auto">
+//    </li>
+//  </ul>
+// </div>
+
+//Carousel with large left bevel
+//<div class="km-carousel km-carousel--bevel-left-l">
+//  <nav class="km-carousel__controls kl-hidden-accessibility" id="my-carousel-controls" aria-label="Carousel Navigation" tabindex="0">
+//    <button data-controls="prev" aria-controls="customize" tabindex="-1" class="ka-nav-button ka-nav-button--l" type="button"><@icons.icon iconPath="Navigation_Arrow_Arrow__Left_16px"  /></button>
+//    <button data-controls="next" aria-controls="customize" tabindex="-1" class="ka-nav-button ka-nav-button--l" type="button"><@icons.icon iconPath="Navigation_Arrow_Arrow__Right_16px" /></button>
+//  </nav>
+//  <ul>
+//    <li class="km-carousel__item">
+//      <img class="km-carousel__img tns-lazy-img" src="" data-src="https://source.unsplash.com/collection/1891993/600x600" alt="" width="" height="auto">
+//    </li>
+//    <li class="km-carousel__item">
+//      <img class="km-carousel__img tns-lazy-img" src="" data-src="https://source.unsplash.com/collection/993239/600x600" alt="" width="" height="auto">
+//    </li>
+//  </ul>
+//</div>
+
+//Carousel with small right bevel
+//<div class="km-carousel km-carousel--bevel-right-s">
+//  <nav class="km-carousel__controls kl-hidden-accessibility" id="my-carousel-controls" aria-label="Carousel Navigation" tabindex="0">
+//    <button data-controls="prev" aria-controls="customize" tabindex="-1" class="ka-nav-button ka-nav-button--l" type="button"><@icons.icon iconPath="Navigation_Arrow_Arrow__Left_16px"  /></button>
+//    <button data-controls="next" aria-controls="customize" tabindex="-1" class="ka-nav-button ka-nav-button--l" type="button"><@icons.icon iconPath="Navigation_Arrow_Arrow__Right_16px" /></button>
+//  </nav>
+//  <ul>
+//    <li class="km-carousel__item">
+//      <img class="km-carousel__img tns-lazy-img" src="" data-src="https://source.unsplash.com/collection/1891993/600x600" alt="" width="" height="auto">
+//    </li>
+//    <li class="km-carousel__item">
+//      <img class="km-carousel__img tns-lazy-img" src="" data-src="https://source.unsplash.com/collection/993239/600x600" alt="" width="" height="auto">
+//    </li>
+//  </ul>
+// </div>
+
+//Carousel with large right bevel
+//<div class="km-carousel km-carousel--bevel-right-l">
+//  <nav class="km-carousel__controls kl-hidden-accessibility" id="my-carousel-controls" aria-label="Carousel Navigation" tabindex="0">
+//    <button data-controls="prev" aria-controls="customize" tabindex="-1" class="ka-nav-button ka-nav-button--l" type="button"><@icons.icon iconPath="Navigation_Arrow_Arrow__Left_16px"  /></button>
+//    <button data-controls="next" aria-controls="customize" tabindex="-1" class="ka-nav-button ka-nav-button--l" type="button"><@icons.icon iconPath="Navigation_Arrow_Arrow__Right_16px" /></button>
+//  </nav>
+//  <ul>
+//    <li class="km-carousel__item">
+//      <img class="km-carousel__img tns-lazy-img" src="" data-src="https://source.unsplash.com/collection/1891993/600x600" alt="" width="" height="auto">
+//    </li>
+//    <li class="km-carousel__item">
+//      <img class="km-carousel__img tns-lazy-img" src="" data-src="https://source.unsplash.com/collection/993239/600x600" alt="" width="" height="auto">
+//    </li>
+//  </ul>
+// </div>
+// */

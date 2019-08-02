@@ -1,0 +1,24 @@
+/**
+* Layout
+* Allow you to benefit from the adapted container size depending on breakpoint and viewport size
+*
+* @example scss
+* <div class="kl-container" style="height: 10vh; background: grey"></div>
+*/
+
+.kl-container{
+    margin: 0 auto;
+    width: $container-width-full;
+    
+    @media #{$from-l} {
+        width: $container-width-l;
+    }
+
+    @media #{$from-xl} {
+        width: $container-width-xl;
+    }
+
+    @media #{$from-xxl} {
+        width: $container-width-xxl;
+    }
+}

@@ -1,0 +1,43 @@
+.km-card-steps {
+    margin: get-space(S) 0;
+    text-align: center; 
+
+    &__picto {
+        color: $primary-01-500;
+        position: relative;
+        margin: 0 auto;
+
+        svg {
+            fill: $primary-01-500;
+            width: 3rem;
+            transform: translateY(-50%);
+            top: 50%;
+            position: relative;
+        }
+    }
+
+    &__content {
+        text-align: left; 
+        padding-left: get-space(XL); 
+        border-left: solid $border-m $grey-200; //variable border-m 
+    }
+
+    &__title {
+        font-weight: bold;  
+        font-size: get-font-size('text', l);
+    }
+
+    &__description {
+        color: $grey-700; 
+    }
+}
+
+/* HTML Molecules/Card_steps
+<li class="km-card-steps col-container-inner">
+    <div class="km-card-steps__picto col-2">my icon</div>
+    <div class="col-10 km-card-steps__content">
+        <h3 class="km-card-steps__title">my title</h3>
+        <p class="km-card-steps__description">my description</p>
+    </div>
+</li>
+*/

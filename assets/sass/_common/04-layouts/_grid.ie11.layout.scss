@@ -1,0 +1,439 @@
+/* IE WORKAROUND
+----------------------------------------------------------------------------- */
+_:-ms-fullscreen, :root  {
+
+  .col-container {
+    @include set-grid-container-for-IE($from-breakpoint: 's');
+  }
+
+  @media #{$lt-m} {
+    .col-line-end-s {
+      margin-right: 0 !important;
+      & + [class^=col] { clear: left; }
+    }
+    $totalMargin: ($width-gutter-S * 11) + 1;
+    $colWidth: "((100% - #{$totalMargin}px) / 12 )";
+    @for $i from 12 through 1 {
+      .col-#{$i}{
+        // [largeur d'une colonne] : (100% - total des gouttières / 12)
+        width: calc( ( #{$colWidth} * #{$i}) + (#{$width-gutter-S}px * #{$i - 1}) );
+      }
+      .col-start-#{$i}{
+        /* En grid, on assigne un start à une colonne : c'est facile
+           En float, on veut une marge, mais comme la largeur de la colonne est variable : c'est plus compliqué
+           Le calcul en détail :
+           ([largeur d'une colonne] + [largeur d'une gouttière]) * [valeur de l'offset]
+        */
+        margin-left: calc( ( #{$colWidth} + #{$width-gutter-S}px) * #{$i - 1} );
+      }
+      // Offset pour décaller les éléments d'une ligne
+      .col-ie-offset-#{$i} {
+        margin-left: calc( ( (#{$colWidth} + #{$width-gutter-S}px) * #{$i}) ) !important;
+      }
+    }
+    @for $i from 12 through 1 {
+      .col-s-#{$i} {
+        // [largeur d'une colonne] : (100% - total des gouttières / 12)
+        width: calc( ( #{$colWidth} * #{$i}) + (#{$width-gutter-S}px * #{$i - 1}) );
+      }
+      .col-start-s-#{$i} {
+        /* En grid, on assigne un start à une colonne : c'est facile
+           En float, on veut une marge, mais comme la largeur de la colonne est variable : c'est plus compliqué
+           Le calcul en détail :
+           ([largeur d'une colonne] + [largeur d'une gouttière]) * [valeur de l'offset]
+        */
+        margin-left: calc( ( #{$colWidth} + #{$width-gutter-S}px) * #{$i - 1} );
+      }
+      // Surcharge pour ce breakpoint
+      .col-ie-offset-s-#{$i} {
+        margin-left: calc( ( (#{$colWidth} + #{$width-gutter-S}px) * #{$i}) ) !important;
+      }
+    }
+  }
+
+  @media #{$from-m} {
+    .col-line-end-m {
+      margin-right: 0 !important;
+      & + [class^=col] { clear: left; }
+    }
+    $totalMargin: ($width-gutter-M * 11) + 1;
+    $colWidth: "((100% - #{$totalMargin}px) / 12 )";
+    @for $i from 12 through 1 {
+      .col-#{$i} {
+        // [largeur d'une colonne] : (100% - total des gouttières / 12)
+        width: calc( ( #{$colWidth} * #{$i}) + (#{$width-gutter-M}px * #{$i - 1}) );
+      }
+      .col-start-#{$i} {
+        /* En grid, on assigne un start à une colonne : c'est facile
+           En float, on veut une marge, mais comme la largeur de la colonne est variable : c'est plus compliqué
+           Le calcul en détail :
+           ([largeur d'une colonne] + [largeur d'une gouttière]) * [valeur de l'offset]
+        */
+        margin-left: calc( ( #{$colWidth} + #{$width-gutter-M}px) * #{$i - 1} );
+      }
+      // Offset pour décaller les éléments d'une ligne
+      .col-ie-offset-#{$i} {
+        margin-left: calc( ( (#{$colWidth} + #{$width-gutter-M}px) * #{$i}) ) !important;
+      }
+    }
+    @for $i from 12 through 1 {
+      .col-m-#{$i} {
+        // [largeur d'une colonne] : (100% - total des gouttières / 12)
+        width: calc( ( #{$colWidth} * #{$i}) + (#{$width-gutter-M}px * #{$i - 1}) );
+      }
+      .col-start-m-#{$i} {
+        /* En grid, on assigne un start à une colonne : c'est facile
+           En float, on veut une marge, mais comme la largeur de la colonne est variable : c'est plus compliqué
+           Le calcul en détail :
+           ([largeur d'une colonne] + [largeur d'une gouttière]) * [valeur de l'offset]
+        */
+        margin-left: calc( ( #{$colWidth} + #{$width-gutter-M}px) * #{$i - 1} );
+      }
+      // Surcharge pour ce breakpoint
+      .col-ie-offset-m-#{$i} {
+        margin-left: calc( ( (#{$colWidth} + #{$width-gutter-M}px) * #{$i}) ) !important;
+      }
+    }
+    .col-ie-offset-m-0 {
+      margin-left: 0;
+    }
+  }
+
+  @media #{$from-l} {
+    .col-line-end-l {
+      margin-right: 0 !important;
+      & + [class^=col] { clear: left; }
+    }
+    @for $i from 12 through 1 {
+      .col-#{$i}{
+        width: #{ ($width-column-L * $i) + ( $width-gutter-L * ($i - 1) ) }px;
+      }
+      .col-start-#{$i}{
+        margin-left: #{($width-column-L + $width-gutter-L) * ($i - 1)}px;
+      }
+      .col-ie-offset-#{$i} {
+        margin-left: #{ ($width-column-L * $i) + ($width-gutter-L * $i) }px !important;
+      }
+    }
+    @for $i from 12 through 1 {
+      .col-l-#{$i} {
+        width: #{ ($width-column-L * $i) + ( $width-gutter-L * ($i - 1) ) }px;
+      }
+      .col-start-l-#{$i} {
+        margin-left: #{($width-column-L + $width-gutter-L) * ($i - 1)}px;
+      }
+      // Surcharge pour ce breakpoint
+      .col-ie-offset-l-#{$i} {
+        margin-left: #{ ($width-column-L + $width-gutter-L) * $i }px !important;
+      }
+    }
+    .col-ie-offset-l-0 {
+      margin-left: 0;
+    }
+  }
+  
+  @media #{$from-xl} {
+    .col-line-end-xl {
+      margin-right: 0 !important;
+      & + [class^=col] { clear: left; }
+    }
+    @for $i from 12 through 1 {
+      .col-#{$i}{
+        width: #{ ($width-column-XL * $i) + ( $width-gutter-XL * ($i - 1) ) }px;
+      }
+      .col-start-#{$i}{
+        margin-left: #{($width-column-XL + $width-gutter-XL) * ($i - 1)}px;
+      }
+      .col-ie-offset-#{$i} {
+        margin-left: #{ ($width-column-XL * $i) + ($width-gutter-XL * $i) }px !important;
+      }
+    }
+    @for $i from 12 through 1 {
+      .col-xl-#{$i} {
+        width: #{ ($width-column-XL * $i) + ( $width-gutter-XL * ($i - 1) ) }px;
+      }
+      .col-start-xl-#{$i} {
+        margin-left: #{($width-column-XL + $width-gutter-XL) * ($i - 1)}px;
+      }
+      // Surcharge pour ce breakpoint
+      .col-ie-offset-xl-#{$i} {
+        margin-left: #{ ($width-column-XL + $width-gutter-XL) * $i }px !important;
+      }
+    }
+    .col-ie-offset-xl-0 {
+      margin-left: 0;
+    }
+  }
+  
+  @media #{$from-xxl} {
+    .col-line-end-xxl {
+      margin-right: 0 !important;
+      & + [class^=col] { clear: left; }
+    }
+
+    @for $i from 12 through 1 {
+      .col-#{$i} {
+        width: #{ ($width-column-XXL * $i) + ( $width-gutter-XXL * ($i - 1) ) }px;
+      }
+      .col-start-#{$i} {
+        margin-left: #{($width-column-XXL + $width-gutter-XXL) * ($i - 1)}px;
+      }
+      .col-ie-offset-#{$i} {
+        margin-left: #{ ($width-column-XXL * $i) + ($width-gutter-XXL * $i) }px !important;
+      }
+    }
+    @for $i from 12 through 1 {
+      .col-xxl-#{$i} {
+        width: #{ ($width-column-XXL * $i) + ( $width-gutter-XXL * ($i - 1) ) }px;
+      }
+      .col-start-xxl-#{$i} {
+        margin-left: #{($width-column-XXL + $width-gutter-XXL) * ($i - 1)}px;
+      }
+      // Surcharge pour ce breakpoint
+      .col-ie-offset-xxl-#{$i} {
+        margin-left: #{ ($width-column-XXL + $width-gutter-XXL) * $i }px !important;
+      }
+    }
+    
+    .col-ie-offset-xxl-0 {
+      margin-left: 0;
+    }
+  }
+
+  .col-container-inner {
+    
+    @include set-grid-container-for-IE($from-breakpoint: 's', $inner:true);
+
+    @media #{$lt-m} {
+      @for $i from 12 through 1 {
+        .col-#{$i}{
+          @if($i != 12) {
+            width: calc(#{ $i * 100 / 12 }% - #{$width-gutter-S}px);
+            margin-right: #{$width-gutter-S}px;
+          } @else {
+            width: $i * 100% / 12;
+            margin-right: 0;
+          }
+  
+          &.col-line-end {
+              width: $i * 100% / 12;
+              margin-right: 0;
+          }
+        }
+        .col-start-#{$i}{
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-S}px) !important;
+        }
+        .col-ie-offset-#{$i} {
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-S}px) !important;
+        }
+      }
+      @for $i from 12 through 1 {
+        .col-s-#{$i} {
+          @if($i != 12) {
+            width: calc(#{ $i * 100 / 12 }% - #{$width-gutter-S}px);
+            margin-right: #{$width-gutter-S}px;
+          } @else {
+            width: $i * 100% / 12;
+            margin-right: 0;
+          }
+  
+          &.col-line-end {
+              width: $i * 100% / 12;
+              margin-right: 0;
+          }
+        }
+        .col-start-s-#{$i} {
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-S}px) !important;
+        }
+      }
+    }
+
+    @media #{$from-m} {
+      @for $i from 12 through 1 {
+        .col-#{$i}{
+          @if($i != 12) {
+            width: calc(#{ $i * 100 / 12 }% - #{$width-gutter-M}px);
+            margin-right: #{$width-gutter-M}px;
+          } @else {
+            width: calc(#{ $i * 100 / 12 }% - 0px);
+            margin-right: 0;
+          }
+
+          &.col-line-end {
+              width: calc(#{ $i * 100 / 12 }% - 0px);
+              margin-right: 0;
+          }
+        }
+        .col-start-#{$i}{
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-M}px) !important;
+        }
+        .col-ie-offset-#{$i} {
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-M}px) !important;
+        }
+      }
+      @for $i from 12 through 1 {
+        .col-m-#{$i} {
+          @if($i != 12) {
+            width: calc(#{ $i * 100 / 12 }% - #{$width-gutter-M}px);
+            margin-right: #{$width-gutter-M}px;
+          } @else {
+            width: calc(#{ $i * 100 / 12 }% - 0px);
+            margin-right: 0;
+          }
+
+          &.col-line-end {
+              width: calc(#{ $i * 100 / 12 }% - 0px);
+              margin-right: 0;
+          }
+        }
+        .col-start-m-#{$i} {
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-M}px) !important;
+        }
+      }
+      .col-ie-offset-m-0 {
+        margin-left: 0;
+      }
+    }
+
+    @media #{$from-l} {
+      @for $i from 12 through 1 {
+        .col-#{$i}{
+          @if($i != 12) {
+            width: calc(#{ $i * 100 / 12 }% - #{$width-gutter-L}px);
+            margin-right: #{$width-gutter-L}px;
+          } @else {
+            width: calc(#{ $i * 100 / 12 }% - 0px);
+            margin-right: 0;
+          }
+
+          &.col-line-end {
+              width: calc(#{ $i * 100 / 12 }% - 0px);
+              margin-right: 0;
+          }
+        }
+        .col-start-#{$i}{
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-L}px) !important;
+        }
+        .col-ie-offset-#{$i} {
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-L}px) !important;
+        }
+      }
+      @for $i from 12 through 1 {
+        .col-l-#{$i} {
+          @if($i != 12) {
+            width: calc(#{ $i * 100 / 12 }% - #{$width-gutter-L}px);
+            margin-right: #{$width-gutter-L}px;
+          } @else {
+            width: calc(#{ $i * 100 / 12 }% - 0px);
+            margin-right: 0;
+          }
+
+          &.col-line-end {
+              width: calc(#{ $i * 100 / 12 }% - 0px);
+              margin-right: 0;
+          }
+        }
+        .col-start-l-#{$i} {
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-L}px) !important;
+        }
+      }
+      .col-ie-offset-l-0 {
+        margin-left: 0;
+      }
+    }
+
+    @media #{$from-xl} {
+      @for $i from 12 through 1 {
+        .col-#{$i}{
+          @if($i != 12) {
+            width: calc(#{ $i * 100 / 12 }% - #{$width-gutter-XL}px);
+            margin-right: #{$width-gutter-XL}px;
+          } @else {
+            width: calc(#{ $i * 100 / 12 }% - 0px);
+            margin-right: 0;
+          }
+
+          &.col-line-end {
+              width: calc(#{ $i * 100 / 12 }% - 0px);
+              margin-right: 0;
+          }
+        }
+        .col-start-#{$i}{
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-XL}px) !important;
+        }
+        .col-ie-offset-#{$i} {
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-XL}px) !important;
+        }
+      }
+      @for $i from 12 through 1 {
+        .col-xl-#{$i} {
+          @if($i != 12) {
+            width: calc(#{ $i * 100 / 12 }% - #{$width-gutter-XL}px);
+            margin-right: #{$width-gutter-XL}px;
+          } @else {
+            width: calc(#{ $i * 100 / 12 }% - 0px);
+            margin-right: 0;
+          }
+
+          &.col-line-end {
+              width: calc(#{ $i * 100 / 12 }% - 0px);
+              margin-right: 0;
+          }
+        }
+        .col-start-xl-#{$i} {
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-XL}px) !important;
+        }
+      }
+      .col-ie-offset-xl-0 {
+        margin-left: 0;
+      }
+    }
+
+    @media #{$from-xxl} {
+      @for $i from 12 through 1 {
+        .col-#{$i}{
+          @if($i != 12) {
+            width: calc(#{ $i * 100 / 12 }% - #{$width-gutter-XXL}px);
+            margin-right: #{$width-gutter-XXL}px;
+          } @else {
+            width: calc(#{ $i * 100 / 12 }% - 0px);
+            margin-right: 0;
+          }
+
+          &.col-line-end {
+              width: calc(#{ $i * 100 / 12 }% - 0px);
+              margin-right: 0;
+          }
+        }
+        .col-start-#{$i}{
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-XXL}px) !important;
+        }
+        .col-ie-offset-#{$i} {
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-XXL}px) !important;
+        }
+      }
+      @for $i from 12 through 1 {
+        .col-xxl-#{$i} {
+          @if($i != 12) {
+            width: calc(#{ $i * 100 / 12 }% - #{$width-gutter-XXL}px);
+            margin-right: #{$width-gutter-XXL}px;
+          } @else {
+            width: calc(#{ $i * 100 / 12 }% - 0px);
+            margin-right: 0;
+          }
+
+          &.col-line-end {
+              width: calc(#{ $i * 100 / 12 }% - 0px);
+              margin-right: 0;
+          }
+        }
+        .col-start-xxl-#{$i} {
+          margin-left: calc(#{ $i * 100 / 12 }% - #{$width-gutter-XXL}px) !important;
+        }
+      }
+      .col-ie-offset-xxl-0 {
+        margin-left: 0;
+      }
+    }
+  }
+}

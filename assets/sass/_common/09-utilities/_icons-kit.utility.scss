@@ -1,0 +1,45 @@
+@mixin iconSize($size){
+    width: #{$size}px; 
+    height: #{$size}px;
+}
+
+$icon-size : (16, 24, 32, 48, 64);
+
+@each $size in $icon-size {
+    .ku-icon-#{$size} {
+        @include iconSize($size);
+
+        @each $name, $screen-size in $breakpoints {
+            @media all and (min-width:#{$screen-size}px){
+                &\@at-#{$name} {
+                    @include iconSize($size);
+                }
+            }
+        }
+    }
+}
+
+.ku-show-icon {
+    &\@at-s {
+        display: block;
+    }
+
+    @each $name, $size in $breakpoints {
+        $i: map-get-prev($map: $breakpoints, $key: $name, $return: key);
+        
+        @media all and (min-width:#{$size}px){
+            @if($i != false ){
+                &\@at-#{$i} {
+                    display: none;
+                }
+            } @else {
+                &\@at-s {
+                    display: none;
+                }
+            }
+            &\@at-#{$name} {
+                display: block;
+            }
+        }
+    }
+}

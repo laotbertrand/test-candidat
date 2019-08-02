@@ -1,0 +1,72 @@
+.km-card-benefits {
+    text-align:center; 
+    margin-bottom: get-space(2XL); 
+    position:relative; 
+
+    &:after {
+        content: '';
+        display: block;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        height: 2rem;
+        left: 2%;
+        right: 2%;
+        position: absolute;
+        bottom: 0px;
+        z-index: -1;
+    }
+
+    &__picto {
+        text-align: center; 
+        color: $primary-01-500;
+        border-radius: 50%;
+        width: 6rem;
+        height: 6rem;
+        position: absolute;
+        border: $border-s solid $primary-01-500; 
+        background: $white;
+        top: -50px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 1; 
+
+        svg {
+            fill: $primary-01-500;
+            width: 100%;
+            max-width: 3.8rem;
+            padding-top: get-space(M);
+        }
+    }
+            
+    &__content {
+        min-height: 15rem;
+        padding: get-space(XL) get-space(3XL) get-space(XL) get-space(3XL); 
+        border-radius: $radius-m;
+        border: $border-s solid $grey-200;
+        background: $white;
+        position: relative;
+    }
+
+    &__title {
+        font-weight: bold;
+        margin-top: get-space(L); 
+        margin-bottom: get-space(XS); 
+        font-size: get-font-size('title', s); 
+    }
+
+    &__description {
+        color: $grey-700;
+    }
+}
+
+/* HTML Molecules/Card_benefits
+<li class="km-card-benefits">
+    <div class="km-card-benefits__picto"> <# Can be optionnal />
+        ${pad.icon}
+    </div>
+    <div class="km-card-benefits__content">
+        <h3 class="km-card-benefits__title">my title</h3>
+        <p class="km-card-benefits__description">my description</p>
+    </div>
+</li>
+*/

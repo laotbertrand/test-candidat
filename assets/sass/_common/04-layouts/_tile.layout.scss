@@ -1,0 +1,73 @@
+.kl-tile{
+    font-size: get-font-size('text', s);
+    position: relative;
+    &__figure{
+        position: absolute;
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    &__brand-image{
+        display: block;
+        height: 20px;
+        max-width: 100%;
+    }
+    &--v {
+        @include flex($flexDirection:column);
+        .kl-tile__group{
+            width: 100%;
+            &:first-child{
+                margin-bottom: get-space(XS);
+            }
+        }
+    }
+    &--h {
+        @include flex($alignItems:start,$flexDirection:row);
+        .kl-tile__group{
+            padding: 0;
+            @include flex($alignItems:start);
+            width: 80%;
+            &:first-child{
+                width: 20%;
+            }
+            .kl-group-blades{
+                padding: 0 get-space(XS);
+                &:first-child{
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+    &--h-to-v {
+        @include flex($alignItems:start);
+        @media #{$from-m} {
+            @include flex($flexDirection:column);
+        }
+        .kl-tile__group{
+            padding: 0 0 0 get-space(XS);
+            width: 100%;
+            @media #{$from-m} {
+                padding: 0;
+            }
+            &:first-child{
+                width: 66%;
+                padding: 0;
+                @media #{$from-m} {
+                    width: 100%;
+                    margin-bottom: get-space(XS);
+                }
+            }
+        }
+    }
+}
+
+_:-ms-fullscreen, :root {
+    .kl-tile{
+        &__figure{
+            transform: translate(-50%,-50%);
+        }
+    }
+}

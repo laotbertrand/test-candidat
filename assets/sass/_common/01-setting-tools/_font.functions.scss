@@ -1,0 +1,94 @@
+/**
+* Function
+* Get font-size rem value
+* Returns REM font-size value with unit
+*
+* @param {string} $type : text or title 
+* @param {enum} $size : font-size key name needed
+*
+* @example scss
+* .my-component {
+*   font-size: get-font-size('title', xs);
+* }
+*/
+@function get-font-size($type , $size) {
+    @if($type == 'text') {
+        @return pxToRem(map-get($font-size, $size));
+    }
+    @else if($type == 'title') {
+        @return pxToRem(map-get($title-size, $size));
+    }
+    @else {
+        @warn 'Le format de $type attendu est une string et doit être "text" ou "title"';
+    }
+}
+
+/**
+* Function
+* Get font-weight value
+* Return number which the weight value (300, 400, 600)
+*
+* @param {string} $weight : light, regular(default), bold
+*
+* Don't use directly, instead prefer bold(), regular() or light()
+*/
+@function get-font-weight($weight: 'regular') {
+
+    @if(($weight != 'light') and ($weight != 'regular') and ($weight != 'bold')) {
+        @warn '#{$weight} Le font-weight demandé n\'existe pas. Les valeurs attendues sont regular (default), light ou bold';
+    }
+    @else {
+
+        @if($weight == 'regular') {
+            @return 400;
+        }
+        @else if($weight == "light") {
+            @return 300;
+        }
+        @else if($weight == "bold") {
+            @return 600;
+        }
+    }
+}
+
+/**
+* Function
+* Get bold font-weight value
+* Returns the font-weight bold value
+*
+* @example scss
+* .my-component {
+*   font-weight: bold();
+* }
+*/
+@function bold() {
+    @return get-font-weight('bold');
+}
+
+/**
+* Function
+* Get regular font-weight value
+* Returns the font-weight regular value
+*
+* @example scss
+* .my-component {
+*   font-weight: regular();
+* }
+*/
+@function regular() {
+    @return get-font-weight();
+}
+
+/**
+* Function
+* Get light font-weight value
+* Returns the font-weight light value
+*
+* @example scss
+* .my-component {
+*   font-weight: light();
+* }
+*/
+@function light() {
+    @return get-font-weight('light');
+}

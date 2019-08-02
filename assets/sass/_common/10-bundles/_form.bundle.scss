@@ -1,0 +1,14 @@
+@import '../05-atoms/_feedback.atoms';
+@import '../05-atoms/_bullet.atoms';
+@import '../05-atoms/_input.atoms';
+@import '../05-atoms/_textarea.atoms';
+@import '../06-molecules/_checkbox.molecules';
+@import '../06-molecules/_radio.molecules';
+@import '../06-molecules/_select.molecules';
+@import '../06-molecules/_field.molecules';
+@import '../06-molecules/_input.molecules';
+
+::placeholder {
+    color: $color-form-placeholder;
+    opacity: 1;
+}

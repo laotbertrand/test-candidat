@@ -1,0 +1,15 @@
+.ka-link {
+  @include resetButton;
+  @include set-link;
+  
+  &--s {
+    font-size: get-font-size('text', s);
+  }
+}
+
+/* HTML Link/global
+  <a href="#">Voici mon lien default</a></br></br> Due to generic <a> tag style don't need to apply ka-link
+  <a href="#" class="ka-link--s">Voici mon lien small</a></br></br>
+  <button type="button" class="ka-link">Voici mon lien default</button></br></br>
+  <button type="button" class="ka-link ka-link--s">Voici mon lien small</button></br></br>
+*/

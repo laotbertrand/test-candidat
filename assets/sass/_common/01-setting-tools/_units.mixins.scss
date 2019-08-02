@@ -1,0 +1,12 @@
+/**
+* Function
+* Get pixel value convert to rem using the magic unit value
+* Returns a rem value
+*
+* @param {number} $size : without unit
+*
+* DEPRECIATED
+*/
+@function pxToRem($size) {
+	@return precision-round($size / $magic-unit, 3) + rem;
+}

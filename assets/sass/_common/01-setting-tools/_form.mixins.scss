@@ -1,0 +1,64 @@
+// Label
+@mixin labelStyle {
+    color: $color-form-label;
+    font-size: get-font-size('text', m);
+    margin-bottom: get-space(XS);
+}
+@mixin labelHoverStyle {
+    color: $color-form-label-is-hover;
+}
+@mixin labelCheckedStyle {
+    color: $color-form-label-is-checked;
+}
+
+// Input
+@mixin inputCommunStyle {
+    border-radius : $radius-m;
+    border: 1px solid $color-form-input-border;
+    display: block;
+    width: 100%;
+    font-size: get-font-size('text', m);
+    background: $white;
+    color: $grey-900;
+    position: relative;
+}
+@mixin inputHoverStyle {
+    border-color: $color-form-input-border-is-hover;
+}
+@mixin inputFocusStyle {
+    border-color: $color-form-input-border-is-focus;
+}
+@mixin inputValidStyle {
+    box-shadow: none;
+    border-color: $color-form-input-border-is-valid;
+}
+@mixin inputCheckedStyle {
+    border-color: $color-form-input-border-is-checked;
+}
+@mixin inputInvalidStyle {
+    border-color: $color-form-input-border-is-invalid;
+}
+@mixin inputDisabledStyle {
+    background-color: $color-form-input-background-is-disabled;
+    border-color: $color-form-input-border-is-disabled;
+}
+
+// Icon
+@mixin icoHoverStyle {
+    fill: $color-form-ico-is-hover;
+}
+@mixin icoFocusStyle {
+    fill: $color-form-ico-is-focus;
+}
+@mixin icoValidStyle {
+    fill: $color-form-ico-is-valid;
+}
+@mixin icoCheckedStyle {
+    fill: $color-form-ico-is-checked;
+}
+@mixin icoInvalidStyle {
+    fill: $color-form-ico-is-invalid;
+}
+@mixin icoDisabledStyle {
+    fill: $color-form-ico-is-disabled;
+}

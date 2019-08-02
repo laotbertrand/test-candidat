@@ -1,0 +1,17 @@
+.ka-price-policy-flag{
+    display: inline-flex;
+    padding: get-space(2XS);
+    text-transform: uppercase;
+    font-weight: bold();
+    font-size: get-font-size('text', xs);
+    &--yellow {
+        background: $price-policy-flag-yellow;
+    }
+    &--blue {
+        background: $price-policy-flag-blue;
+    }
+    &--red {
+        background: $price-policy-flag-red;
+        color: $white;
+    }
+}

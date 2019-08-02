@@ -1,0 +1,6 @@
+.kl-group-blades{
+    width: 100%;
+    &--inline{
+        @include flex($justifyContent:space-between);
+    }
+}

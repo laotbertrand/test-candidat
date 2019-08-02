@@ -1,0 +1,18 @@
+/**
+* Function
+* Calculating the padding of a button taking into account the size of the border
+* Returns CSS Value in REM
+*
+* @param {enum} $space : XS, S, M, ...
+*
+* @example scss - Usage
+* .a-my-atom {
+* 	padding: get-button-padding(XL)
+* }
+*
+*/
+
+@function get-button-padding($space) {
+	$var : map-get($scales, $space);
+	@return pxToRem($var - $border-button);
+}

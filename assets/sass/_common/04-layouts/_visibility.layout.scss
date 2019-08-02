@@ -1,0 +1,65 @@
+/**
+* Layout
+* Allow you to hide a component on all screens or on each available breakpoint you want
+*
+* @example scss
+* <div class="kl-hidden"></div>
+* <div class="kl-hidden@from-m">Only visible on mobile</div>
+* <div class="kl-hidden@from-l">Only visible on small devices ( mobile and tabel )</div>
+*/
+
+.kl-hidden {
+	display: none;
+
+    @each $name, $size in $breakpoints {
+        @media all and (min-width:#{$size}px){
+            &\@from-#{$name} {
+              display: none;
+            }
+        }
+    }
+}
+
+/**
+* Layout
+* Accessibility
+* Allow you to hide a component on all screens or on each available breakpoint you want but still have lisibility for screen reader
+*
+* @example scss
+* <div class="kl-hidden-accessibility"></div>
+* <div class="kl-hidden-accessibility@from-m">Only visible on mobile and readable for all devices</div>
+* <div class="kl-hidden-accessibility@from-l">Only visible on small devices ( mobile and tabel ) and readable for all devices</div>
+*/
+.kl-hidden-accessibility {
+    @include set-hidden-accessibility;
+    
+    @each $name, $size in $breakpoints {
+        @media all and (min-width:#{$size}px){
+            &\@from-#{$name} {
+                @include set-hidden-accessibility;
+            }
+        }
+    }
+}
+
+/**
+* Layout
+* Allow you to show a component on each available breakpoint you want
+*
+* @example scss
+* <div class="kl-visible"></div>
+* <div class="kl-visible@from-m">Only visible from tablet to infinite</div>
+* <div class="kl-visible@from-l">Only visible from laptop to infinite</div>
+*/
+.kl-visible {
+    display: block;
+    
+    @each $name, $size in $breakpoints {
+        @media all and (min-width:#{$size}px){
+            &\@from-#{$name} {
+                display: block;
+            }
+        }
+    }
+}
+

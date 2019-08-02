@@ -1,0 +1,27 @@
+$spacing3XS: 2;
+$spacing2XS: 4;
+$spacingXS: 8;
+$spacingS: 12;
+$spacingM: 16;
+$spacingL: 24;
+$spacingXL: 32;
+$spacing2XL: 40;
+$spacing3XL: 48;
+$spacing4XL: 64;
+$spacing5XL: 96;
+$spacing6XL: 160;
+
+$scales: (
+	3XS : $spacing3XS,
+	2XS : $spacing2XS,
+	XS : $spacingXS,
+	S : $spacingS,
+	M : $spacingM,
+	L : $spacingL,
+	XL : $spacingXL,
+	2XL : $spacing2XL,
+	3XL : $spacing3XL,
+	4XL : $spacing4XL,
+	5XL : $spacing5XL,
+	6XL : $spacing6XL
+);

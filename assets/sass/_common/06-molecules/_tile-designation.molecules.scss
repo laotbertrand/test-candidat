@@ -1,0 +1,19 @@
+.km-tile-designation{
+    font-size: get-font-size('text', s);
+    &__link {
+        font-size: get-font-size('text', s);
+        text-decoration: none;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        &:not(.a-button):hover{
+            color: $black;
+            text-decoration: underline;
+        }
+    }
+}

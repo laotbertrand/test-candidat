@@ -1,0 +1,28 @@
+/**
+* Mixin
+* Set link style
+* Returns CSS Declarations
+*
+* @example scss
+* .a-my-atom {
+*     @include set-link;
+* }
+*/
+@mixin set-link {
+    color: $text-999;
+    font-size: get-font-size('text', m);
+    text-decoration: underline;
+    transition: all ease 200ms;
+
+    &:not(.ka-button) {
+        
+        &:hover {
+            cursor: pointer;
+            color: $primary-01-500;
+        }
+
+        &:focus {
+            color: $primary-01-700;
+        }
+    }
+}

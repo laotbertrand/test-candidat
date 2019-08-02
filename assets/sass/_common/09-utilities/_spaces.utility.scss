@@ -1,0 +1,33 @@
+@each $key, $value in $scales {
+	.ku-margin--#{$key} {
+		margin: get-space($key);
+	}
+	.ku-margin-top--#{$key} {
+		margin-top: get-space($key);
+	}
+	.ku-margin-right--#{$key} {
+		margin-right: get-space($key);
+	}
+	.ku-margin-bottom--#{$key} {
+		margin-bottom: get-space($key);
+	}
+	.ku-margin-left--#{$key} {
+		margin-left: get-space($key);
+	}
+
+	.ku-padding--#{$key} {
+		padding: get-space($key);
+	}
+	.ku-padding-top--#{$key} {
+		padding-top: get-space($key);
+	}
+	.ku-padding-right--#{$key} {
+		padding-right: get-space($key);
+	}
+	.ku-padding-bottom--#{$key} {
+		padding-bottom: get-space($key);
+	}
+	.ku-padding-left--#{$key} {
+		padding-left: get-space($key);
+	}
+}

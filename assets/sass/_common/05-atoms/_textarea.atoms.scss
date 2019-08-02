@@ -1,0 +1,28 @@
+.ka-textarea{
+    @include resetInput;
+    @include inputCommunStyle;
+    padding : get-space(M);
+    min-height: pxToRem(200);
+    // State
+    &.is-valid{
+        @include inputValidStyle;
+    }
+    // State
+    &.is-invalid{
+        @include inputInvalidStyle;
+    }
+    // State
+    &:hover{
+        @include inputHoverStyle;
+    }
+    // State
+    &:focus{
+        @include inputFocusStyle;
+    }
+    // State
+    &:disabled{
+        @include inputDisabledStyle;
+    }
+}
+
+// TODO - Add documentation

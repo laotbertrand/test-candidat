@@ -1,0 +1,21 @@
+$title-size : (
+    xs : 23,
+    s : 24,
+    m : 28,
+    l : 32,
+    xl : 34,
+    xxl : 44
+);
+
+$font-size : (
+    xs : 12,
+    s : 14,
+    m : 16,
+    l : 18,
+);
+
+$font-weight : (
+    light: light(),
+    regular: regular(),
+    bold: bold()
+);

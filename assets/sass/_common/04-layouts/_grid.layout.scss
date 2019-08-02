@@ -1,0 +1,60 @@
+// Grids definition
+
+/* Cols container
+----------------------------------------------------------------------------- */
+.col-container-inner {
+  @include set-grid-container($from-breakpoint: 's', $inner:true);
+}
+
+.col-container {
+  @include set-grid-container($from-breakpoint: 's');
+}
+
+
+/* Largeur de chaque élément en nombre de colonne
+----------------------------------------------------------------------------- */
+/* Colonne de début d'un élément
+----------------------------------------------------------------------------- */
+@for $i from 1 through 12 {
+  .col-#{$i} { grid-column-end: span $i; }
+  .col-start-#{$i} { grid-column-start: col-#{$i}-start; }
+}
+
+@media #{$lt-m} {
+  @for $i from 1 through 12 {
+    .col-s-#{$i} { grid-column-end: span $i; }
+    .col-start-s-#{$i} { grid-column-start: col-#{$i}-start; }
+  }
+}
+
+@media #{$from-m} {
+  @for $i from 1 through 12 {
+    .col-m-#{$i} { grid-column-end: span $i; }
+    .col-start-m-#{$i} { grid-column-start: col-#{$i}-start; }
+  }
+  .col-start-m-auto { grid-column-start: inherit}
+}
+
+@media #{$from-l} {
+  @for $i from 1 through 12 {
+    .col-l-#{$i} { grid-column-end: span $i; }
+    .col-start-l-#{$i} { grid-column-start: col-#{$i}-start; }
+  }
+  .col-start-l-auto { grid-column-start: inherit}
+}
+
+@media #{$from-xl} {
+  @for $i from 1 through 12 {
+    .col-xl-#{$i} { grid-column-end: span $i; }
+    .col-start-xl-#{$i} { grid-column-start: col-#{$i}-start; }
+  }
+  .col-start-xl-auto { grid-column-start: inherit}
+}
+
+@media #{$from-xxl} {
+  @for $i from 1 through 12 {
+    .col-xxl-#{$i} { grid-column-end: span $i; }
+    .col-start-xxl-#{$i} { grid-column-start: col-#{$i}-start; }
+  }
+  .col-start-xxl-auto { grid-column-start: inherit}
+}

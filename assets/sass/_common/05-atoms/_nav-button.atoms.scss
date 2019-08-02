@@ -1,0 +1,16 @@
+.ka-nav-button{
+  border-radius: $radius-m;
+  cursor: pointer;
+  background:$white;
+  transition: all 400ms ease-in-out;
+  padding: get-space(XS) get-space(S);
+  &--l{
+    padding: get-space(M) get-space(S);
+  }
+
+}
+
+// /* HTML button/carousel
+// <button class="ka-nav-button"> icon left </button><br><br>
+// <button class="ka-nav-button ka-nav-button--l"> icon right </button>
+// */

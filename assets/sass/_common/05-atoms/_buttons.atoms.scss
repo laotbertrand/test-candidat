@@ -1,0 +1,117 @@
+.ka-button {
+    @include resetButton();
+    @include mix-primaryState($default-theme);
+    font-size: get-font-size('text' , m);
+    border: #{$border-button}px solid transparent;
+    border-radius: $radius-m;
+    color: $white;
+    cursor: pointer;
+    display: inline-block;
+    padding: get-button-padding(S) get-button-padding(L);
+    vertical-align: middle;
+    font-weight: bold();
+    text-decoration: none;
+    text-align: left;
+    line-height: 24px;
+    transition: all ease 300ms;
+    
+    &__icon {
+        &:not(.kl-hidden) {
+            float: left;
+            margin: -#{get-space(2XS)} get-space(XS) -#{get-space(2XS)} -#{get-space(2XS)};
+            vertical-align: middle;
+            fill: $white;
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    &--secondary {
+        @include mix-secondaryState($default-theme);
+        & .ka-button__icon {
+            fill: $primary-01-500;
+        }
+    }
+
+    &--s {
+        @include mix-set-small();
+    }
+    &--m {
+        @include mix-set-regular();
+    }
+    &--l {
+        @include mix-set-large();
+    }
+
+    &--s {
+        @each $name, $size in $breakpoints {
+            @media all and (min-width:#{$size}px){
+              &\@from-#{$name}{
+                @include mix-set-small();
+              }
+            }
+        }
+    }
+    &--m {
+        @each $name, $size in $breakpoints {
+            @media all and (min-width:#{$size}px){
+              &\@from-#{$name}{
+                @include mix-set-regular();
+              }
+            }
+        }
+    }
+    &--l {
+        @each $name, $size in $breakpoints {
+            @media all and (min-width:#{$size}px){
+                &\@from-#{$name}{
+                    @include mix-set-large();
+                }
+            }
+        }
+    }
+
+
+    &--full {
+        @include mix-set-full();
+        @each $name, $size in $breakpoints {
+            @media all and (min-width:#{$size}px){
+              &\@from-#{$name}{
+                @include mix-set-full();
+              }
+            }
+        }
+    }
+    &--icon-only {
+        padding: get-button-padding(XS);
+        & .ka-button__icon { 
+            &:not(.kl-hidden) {
+                margin: 0;
+                float: none;
+            }
+        }
+        &.ka-button--s {
+            padding: get-button-padding(2XS);
+            & .ka-button__icon { 
+                &:not(.kl-hidden) {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &--campus {
+        @include mix-primaryState($campus-theme);
+        &.ka-button--secondary {
+            @include mix-secondaryState($campus-theme);
+        }
+    }
+    &--grey {
+        @include mix-primaryState($grey-theme);
+        &.ka-button--secondary {
+            @include mix-secondaryState($grey-theme);
+        }
+    }
+}
+
+// TODO - Add documentation

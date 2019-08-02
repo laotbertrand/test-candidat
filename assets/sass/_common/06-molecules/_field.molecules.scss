@@ -1,0 +1,108 @@
+.km-field{
+    &__label {
+        @include labelStyle;
+        display: block;
+    }
+
+    &__mention {
+        font-size: get-font-size('text', xs);
+        white-space: nowrap;
+    }
+
+    &__suggest {
+        color: $grey-600;
+        display: block;
+        font-size: get-font-size('text', xs);
+        line-height: 1.15;
+        margin-top : get-space(3XS);
+    }
+
+    &__input {
+        margin: get-space(S) 0 get-space(3XS);
+    }
+
+    &__message {
+        display: block;
+        margin-top: get-space(S);
+    }
+
+    &__wrapper {
+        margin: get-space(S) 0 get-space(3XS);
+    }
+
+    &__criteria-list {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 0;
+        margin-top: get-space(S);
+
+        &__item {
+            flex: 0 0 50%;
+            font-size: get-font-size('text', xs);
+            line-height: 1.15;
+            color: $color-form-criteria;
+            margin-bottom: get-space(XS);
+
+            &.is-valid {
+                color: $color-form-criteria-is-valid;
+            }
+
+            &.is-invalid {
+                color: $color-form-criteria-is-invalid;
+            }
+        }
+        &__bullet {
+            margin-right: get-space(2XS);
+
+            .is-invalid & {
+                background: $color-form-criteria-bullet-is-invalid;
+            }
+        }
+    }
+
+    &__checkbox-wrapper,
+    &__radio-wrapper {
+        margin-bottom: get-space(XS);
+    }
+
+    &__select-wrapper {
+        margin: get-space(S) 0 get-space(3XS);
+    }
+
+    &__miniature {
+
+        padding: get-space(XS);
+        display: flex;
+        align-items: center;
+
+        & + & {
+            border-top: $border-s $grey-300 solid;
+        }
+
+        &__image {
+            display: inline-block;
+            object-fit: contain; 
+            width: 48px; 
+            height: 48px;
+            margin-right: get-space(XS);
+        }
+
+        &__name {
+            flex-grow: 1;
+            word-break: break-all;
+        }
+
+        &__delete {
+            margin-left: get-space(XS);
+            cursor: pointer;
+        }
+    }
+
+    &__remaining-character {
+        margin: get-space(XS);
+        font-size: get-font-size('text', s);
+        text-align: right;
+    }
+}
+
+// TODO - Add documentation

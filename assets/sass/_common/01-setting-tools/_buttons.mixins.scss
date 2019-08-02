@@ -1,0 +1,162 @@
+/**
+* Mixin
+* Define primary button style with background
+* Returns CSS Declarations
+* 
+* @param {map} $theme
+*
+*/
+@mixin mix-primaryState($theme) {
+    background: map-get($theme, color);
+
+    &:hover {
+        background: map-get($theme, color-hover);
+    }
+
+    &:focus {  
+        outline: none;
+        background: map-get($theme, color-hover);
+        box-shadow: 0 1px 5px 0 fade-out($grey-700, 0.4);
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
+
+    &:active {
+        background: map-get($theme, color-active);
+    }
+
+    &:disabled,
+    &.is-disabled {
+        background-color: map-get($theme, color-disabled);
+        cursor: default;
+    }
+}
+
+/**
+* Mixin
+* Define secondary button style with border
+* Returns CSS Declarations
+* 
+* @param {map} $theme
+*
+*/
+@mixin mix-secondaryState($theme) {
+    background: $white;
+    border-color: map-get($theme, color);
+    color: map-get($theme, color);
+
+    & .ka-button__icon {
+        fill: map-get($theme, color);
+    }
+
+    &:hover {
+        border-color: map-get($theme, color-hover);
+        color: map-get($theme, color-hover);
+        background: $white;
+
+        & .ka-button__icon {
+            fill: map-get($theme, color-hover);
+        }
+    }
+
+    &:focus {
+        background: $white;
+    }
+
+    &:active {
+        border-color: map-get($theme, color-active);
+        background: $white;
+
+        & .ka-button__icon {
+            fill: map-get($theme, color-active);
+        }
+    }
+
+    &:disabled {
+        border-color: map-get($theme, color-disabled);
+        color: map-get($theme, color-disabled);
+        background: $white;
+        cursor: default;
+    }
+}
+
+/**
+* Mixin
+* Set small button size 
+* Returns CSS Declarations
+*
+*/
+@mixin mix-set-small() {
+    font-size: get-font-size('text' , s);
+    padding: get-button-padding(2XS) get-button-padding(M);
+
+    & .ka-button__icon {
+
+        &:not(.kl-hidden) {
+            display: none;
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+/**
+* Mixin
+* Set medium button size 
+* Returns CSS Declarations
+*
+*/
+@mixin mix-set-regular() {
+    font-size: get-font-size('text' , m);
+    padding: get-button-padding(S) get-button-padding(L);
+
+    & .ka-button__icon {
+
+        &:not(.kl-hidden) {
+            display: block;
+            width: 32px;
+            height: 32px;
+        }
+    }
+}
+
+/**
+* Mixin
+* Set large button size 
+* Returns CSS Declarations
+*
+*/
+@mixin mix-set-large() {
+    font-size: get-font-size('text' , l);
+    padding: get-button-padding(M) get-button-padding(L);
+
+    & .ka-button__icon {
+
+        &:not(.kl-hidden) {
+            display: block;
+            margin-top: -#{get-space(XS)};
+            margin-bottom: -#{get-space(XS)};
+            margin: -#{get-space(XS)} inherit;
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+
+/**
+* Mixin
+* Set full width display 
+* Returns CSS Declarations
+*
+*/
+@mixin mix-set-full() {
+    width: 100%;
+    text-align: center;
+
+    & .ka-button__icon:not(.kl-hidden) {
+        float: none;
+        display: inline-block;
+    }
+}

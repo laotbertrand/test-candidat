@@ -1,0 +1,9 @@
+// ----- 2.0 ------------------------------------------------------------------ //
+.ka-feedback {
+    font-size: get-font-size('text', xs);
+    line-height: 1.15;
+
+    &--invalid {
+        color: $secondary-red-500;
+    }
+}

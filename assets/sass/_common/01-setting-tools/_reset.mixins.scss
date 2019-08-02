@@ -1,0 +1,100 @@
+/**
+* Mixin
+* resetButton
+* Returns CSS Declarations
+*
+* @example scss
+* .a-my-atom {
+*     @include resetButton();
+* }
+*/
+@mixin resetButton(){
+    border: none;
+    background: none;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/**
+* Mixin
+* resetTable
+* Returns CSS Declarations
+*
+* @example scss
+* .a-my-atom {
+*     @include resetTable();
+* }
+*/
+@mixin resetTable(){
+    table, thead, tbody, tfoot, tr, th, td{
+        display: block;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-collapse: inherit;
+        border-spacing: 0;
+        border-color: inherit;
+        text-align: left;
+        font-weight: inherit;
+        -webkit-border-horizontal-spacing: 0;
+        -webkit-border-vertical-spacing: 0;
+    }
+    th, td {
+        display: inline;
+    }
+}
+
+/**
+* Mixin
+* resetInput
+* Returns CSS Declarations
+*
+* @example scss
+* .a-my-atom {
+*     @include resetInput();
+* }
+*/
+@mixin resetInput {
+    font-weight: regular();
+    box-sizing: border-box;
+    outline: none;
+    appearance: none;
+    padding: 0;
+    box-shadow: none;
+    &[type=checkbox],
+    &[type=radio]{
+        margin: 0;
+    }
+}
+/**
+* Mixin
+* resetSelect
+* Returns CSS Declarations
+*
+* @example scss
+* .a-my-atom {
+*     @include resetSelect();
+* }
+*/
+@mixin resetSelect {
+    font-weight: regular();
+    box-sizing: border-box;
+    outline: none;
+    appearance: none;
+    margin: 0;
+    border: none;
+    text-overflow: '';
+    text-indent: 0.01px;
+    width: 100%;
+    padding : get-space(M);
+    font-size: get-font-size('text', m);
+    background: transparent;
+    z-index: 1;
+    &::-ms-expand {
+        display: none;
+    }
+}

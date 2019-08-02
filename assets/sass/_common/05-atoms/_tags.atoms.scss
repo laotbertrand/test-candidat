@@ -1,0 +1,128 @@
+.ka-tag {
+    @include resetButton;
+    font-size: get-font-size('text', s);
+    box-sizing: border-box;
+    padding: get-space(XS) get-space(M);
+    transition: all .3s;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width:100%;
+    border:$border-s solid $color-tag-lightgrey;
+    border-radius: 1rem;
+    color: $color-tag-darkgrey;
+
+    &:focus{
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &--small {
+        @include set-small;
+
+        @each $name, $size in $breakpoints {
+
+            @media all and (min-width:#{$size}px) {
+                &\@from-#{$name} {
+                    @include set-small;
+                }
+            }
+        }
+    }
+
+    &--medium {
+
+        @each $name, $size in $breakpoints {
+
+            @media all and (min-width:#{$size}px) {
+                &\@from-#{$name} {
+                    @include set-medium;
+                }
+            }
+        }
+    }
+
+    &--large {
+        @include set-large;
+
+        @each $name, $size in $breakpoints {
+
+            @media all and (min-width:#{$size}px) {
+                &\@from-#{$name} {
+                    @include set-large;
+                }
+            }
+        }
+    }
+
+    &--bordered-dark {
+        color:$color-tag-dark;
+        border-color:$color-tag-darkgrey;
+
+        &.is-selected {
+            @include set-selected-light;
+        }
+    }
+
+    &--bordered-light {
+        color:$color-tag-light;
+        border-color:$color-tag-light;
+
+        &.is-selected {
+            @include set-selected-dark;
+        }
+    }
+
+    &--bordered-danger {
+        color:$color-tag-danger;
+        border-color:$color-tag-danger;
+
+        &.is-selected {
+            @include set-selected-danger;
+        }
+    }
+
+    &--background-grey {
+        background-color: rgba(25, 23, 26, 0.3);
+
+        &.is-selected {
+            @include set-selected-dark;
+        }
+    }
+
+    &--background-light {
+        background-color: rgba(255, 255, 255, 0.3);
+
+        &.is-selected {
+            @include set-selected-light;
+        }
+    }
+}
+
+/* HTML tags/global
+    <a class="ka-tag" href="#">tags</a>
+    <a class="ka-tag ka-tag--small" href="#">tags</a>
+    <a class="ka-tag ka-tag--large" href="#">tags</a>
+    <a class="ka-tag ka-bordered-dark" href="#">tags</a>
+    <a class="ka-tag ka-tag--small ka-bordered-dark" href="#">tags</a>
+    <a class="ka-tag ka-tag--large ka-bordered-dark" href="#">tags</a>
+    <a class="ka-tag ka-bordered-light" href="#">tags</a>
+    <a class="ka-tag ka-tag--small ka-bordered-light" href="#">tags</a>
+    <a class="ka-tag ka-tag--large ka-bordered-light" href="#">tags</a>
+    <a class="ka-tag ka-bordered-dark ka-tag--background-light" href="#">tags</a>
+    <a class="ka-tag ka-tag--small ka-bordered-dark ka-tag--background-light" href="#">tags</a>
+    <a class="ka-tag ka-tag--large ka-bordered-dark ka-tag--background-light" href="#">tags</a>
+    <a class="ka-tag ka-bordered-light ka-tag--background-grey" href="#">tags</a>
+    <a class="ka-tag ka-tag--small ka-bordered-light ka-tag--background-grey" href="#">tags</a>
+    <a class="ka-tag ka-tag--large ka-bordered-light ka-tag--background-grey" href="#">tags</a>
+    <a class="ka-tag ka-tag--background-light is-selected" href="#">tags</a>
+    <a class="ka-tag ka-tag--small ka-tag--background-light is-selected" href="#">tags</a>
+    <a class="ka-tag ka-tag--large ka-tag--background-light is-selected" href="#">tags</a>
+    <a class="ka-tag ka-tag--background-grey is-selected" href="#">tags</a>
+    <a class="ka-tag ka-tag--small ka-tag--background-grey is-selected" href="#">tags</a>
+    <a class="ka-tag ka-tag--large ka-tag--background-grey is-selected" href="#">tags</a>
+    <a class="ka-tag ka-tag--small ka-bordered-danger" href="#">tags</a>
+    <a class="ka-tag ka-tag--large ka-bordered-danger" href="#">tags</a>
+    <a class="ka-tag ka-tag--small ka-bordered-danger is-selected" href="#">tags</a>
+    <a class="ka-tag ka-tag--large ka-bordered-danger is-selected" href="#">tags</a>
+*/

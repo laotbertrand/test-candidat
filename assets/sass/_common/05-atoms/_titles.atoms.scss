@@ -1,0 +1,51 @@
+.ka-title {
+    @each $weight, $value in $font-weight {
+        @each $name, $font-size in $title-size {
+            
+            // ka-title-regular-xs, ka-title-bold-xs 
+            &-#{$weight}-#{$name} {
+                text-align: left;
+                font-size : pxToRem($font-size);
+                font-weight: get-font-weight(#{$weight});
+
+                @each $breakpoint-name, $size in $breakpoints {
+
+                    @media all and (min-width:#{$size}px) {
+
+                        &\@from-#{$breakpoint-name} {
+                            text-align: left;
+                            font-size : pxToRem($font-size);
+                            font-weight: get-font-weight(#{$weight});
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+
+/* HTML title/global
+    <div>
+        <h2>Taille de texte</h2>
+        <p class="ka-title-light-xs">Mon atom titre</p>
+        <p class="ka-title-light-s">Mon atom titre</p>
+        <p class="ka-title-light-m">Mon atom titre</p>
+        <p class="ka-title-light-l">Mon atom titre</p>
+        <p class="ka-title-light-xl">Mon atom titre</p>
+        <p class="ka-title-light-xxl">Mon atom titre</p>
+        <p class="ka-title-regular-xs">Mon atom titre</p>
+        <p class="ka-title-regular-s">Mon atom titre</p>
+        <p class="ka-title-regular-m">Mon atom titre</p>
+        <p class="ka-title-regular-l">Mon atom titre</p>
+        <p class="ka-title-regular-xl">Mon atom titre</p>
+        <p class="ka-title-regular-xxl">Mon atom titre</p>
+        <p class="ka-title-bold-xs">Mon atom titre</p>
+        <p class="ka-title-bold-s">Mon atom titre</p>
+        <p class="ka-title-bold-m">Mon atom titre</p>
+        <p class="ka-title-bold-l">Mon atom titre</p>
+        <p class="ka-title-bold-xl">Mon atom titre</p>
+        <p class="ka-title-bold-xxl">Mon atom titre</p>
+    </div>
+*/

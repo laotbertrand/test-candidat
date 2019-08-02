@@ -1,0 +1,17 @@
+/**
+* Function
+* Get rem space value
+* Returns REM spacing value with unit
+*
+* @param {enum} $space : space key name needed
+*
+* @example scss
+* .my-component {
+*   padding: get-space(M);
+*   margin: get-space(XL);
+* }
+*/
+@function get-space($space) {
+	$var : map-get($scales, $space);
+	@return pxToRem($var);
+}

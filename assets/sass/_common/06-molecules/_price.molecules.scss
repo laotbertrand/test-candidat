@@ -1,0 +1,29 @@
+.km-price{
+    font-size: get-font-size('title', xs);
+    &__value{
+        font-weight: bold();
+    }
+    &__crossed{
+        position: relative;
+        font-size: get-font-size('text', xs);
+        &:after{
+            content: '';
+            display: block;
+            background: $black;
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+    }
+    &__flag{
+        background: $price-discount-flag-red;
+        color: $white;
+        padding: get-space(2XS);
+        margin-right: get-space(XS);
+        font-size: get-font-size('text', xs);
+    }
+}

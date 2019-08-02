@@ -1,0 +1,11 @@
+.ka-separator {
+    @include add-separator($position: "block") {
+        margin: get-space(3XL) 0 get-space(XS) 0;
+    };
+}
+
+/* HTML separators/global
+    <div>
+        <span class="ka-separator"></span>
+    </div>
+*/

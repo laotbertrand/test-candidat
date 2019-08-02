@@ -1,0 +1,36 @@
+/**
+  flex mixin
+  OPTIMIZE à ameliorer en ajoutant des conditions sur les params et separer les displays etc... dans d'autre mixins
+  OPTIMIZE voir les navigateur à viser
+*/
+@mixin flex($type:flex, $alignItems:center, $flexDirection:row, $alignContent:stretch, $justifyContent:start, $flexWrap:nowrap) {
+    display: $type;
+    display: -ms-#{$type}box;
+    display: -webkit-#{$type};
+    -webkit-flex-direction: $flexDirection;
+    -ms-flex-direction: $flexDirection;
+    flex-direction: $flexDirection;
+    -webkit-align-items: $alignItems;
+    -ms-flex-align: $alignItems;
+    align-items: $alignItems;
+    -webkit-align-content: $alignContent;
+    align-content: $alignContent;
+    -webkit-justify-content: flex-#{$justifyContent};
+    -ms-flex-pack: $justifyContent;
+    justify-content: #{$justifyContent};
+    -webkit-flex-wrap: $flexWrap;
+    -ms-flex-wrap: $flexWrap;
+    flex-wrap: $flexWrap;
+}
+
+@mixin flex-item ($order:0, $flex:0 1 auto, $align-self:auto) {
+    -webkit-order: $order;
+    -ms-flex-order: $order;
+    order: $order;
+    -webkit-flex: $flex;
+    -ms-flex: $flex;
+    flex: $flex;
+    -webkit-align-self: $align-self;
+    -ms-flex-item-align: $align-self;
+    align-self: $align-self;
+}
