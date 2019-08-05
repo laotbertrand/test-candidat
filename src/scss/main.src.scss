@@ -1,6 +1,5 @@
-body {
-    margin: 0;
-}
+@import '../../assets/sass/_common/01-setting-tools/all-settings';
+@import '../../assets/sass/_common/02-generic/reset';
 
 header {
     width: 100%;
@@ -21,4 +20,36 @@ header {
 .ariane-container {
     width: 1440px;
     height: 64px;
+
+    /* Style the list */
+    ul.breadcrumb {
+        padding: 25px 70px;
+        list-style: none;
+    }
+
+    /* Display list items side by side */
+    ul.breadcrumb li {
+        display: inline;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    /* Add a symbol (>) before/behind each list item */
+    ul.breadcrumb li+li:before {
+        padding: 8px;
+        color: #b9b1ba;
+        content: "\003E";
+    }
+
+    /* Add a color to all links inside the list */
+    ul.breadcrumb li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* Add a color on mouse-over */
+    ul.breadcrumb li a:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
 }
