@@ -155,5 +155,53 @@ header {
                 }
             }
         }
+
+        .nav-container {
+            position: absolute;
+            bottom: 16px;
+            width: 348px;
+            height: 20px;
+            a.nav-link {
+                font-size: 14px;
+                color: #78be20;
+                line-height: 20px;
+                text-decoration: underline;
+                &:hover {
+                    text-decoration: none;
+                }
+                position: absolute;
+                top: 0;
+                &.prev-link {
+                    left: 0;
+                }
+                &.next-link {
+                    right: 0;
+                }
+            }
+            .puces-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                ul {
+                    transform: translate(-50%, -50%);
+                    height: 8px;
+                    li.puce {
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 4px;
+                        background-color: #e4e1e5;
+                        float: left;
+                        margin-right: 8px;
+                        cursor: pointer;
+                        &:last-child {
+                            margin-right: 0
+                        }
+                        &.active, &:hover {
+                            background-color: #78be20;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
