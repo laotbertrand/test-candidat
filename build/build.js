@@ -1,7 +1,7 @@
 const buildJS = require('./tasks/rollup').buildJS;
 const buildSass = require('./tasks/scss').buildSass;
-const copyIndex = require('./tasks/copy').copyIndex;
+const copyFiles = require('./tasks/copy').copyFiles;
 
 buildJS();
 buildSass();
-copyIndex();
+copyFiles();

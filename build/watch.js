@@ -1,6 +1,6 @@
 const buildJS = require('./tasks/rollup').buildJS;
 const buildSass = require('./tasks/scss').buildSass;
-const copyIndex = require('./tasks/copy').copyIndex;
+const copyFiles = require('./tasks/copy').copyFiles;
 const chokidar = require('chokidar');
 const colors = require('colors');
 
@@ -15,7 +15,7 @@ const build = path => {
   } else if (path.indexOf('src.scss') > -1) {
     buildSass();
   } else if (path.indexOf('index.html') > -1) {
-    copyIndex();
+    copyFiles();
   }
 }
 
