@@ -23,33 +23,70 @@ header {
 
     /* Style the list */
     ul.breadcrumb {
-        padding: 25px 70px;
+        padding: 25px 70px 0 70px;
         list-style: none;
-    }
 
-    /* Display list items side by side */
-    ul.breadcrumb li {
-        display: inline;
-        font-size: 12px;
-        line-height: 14px;
-    }
+        /* Display list items side by side */
+        li {
+            display: inline;
+            font-size: 12px;
+            line-height: 14px;
+        }
 
-    /* Add a symbol (>) before/behind each list item */
-    ul.breadcrumb li+li:before {
-        padding: 8px;
-        color: #b9b1ba;
-        content: "\003E";
-    }
+        /* Add a symbol (>) before/behind each list item */
+        li+li:before {
+            padding: 8px;
+            color: #b9b1ba;
+            content: "\003E";
+        }
 
-    /* Add a color to all links inside the list */
-    ul.breadcrumb li a {
+        /* Add a color to all links inside the list */
+        li a {
+            color: #fff;
+            text-decoration: none;
+
+            /* Add a color on mouse-over */
+            &:hover {
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
+
+    }
+}
+
+.title-container {
+    margin: 48px 106px 0 181px;
+    h2 {
+        font-size: 44px;
+        line-height: 53px;
         color: #fff;
-        text-decoration: none;
     }
 
-    /* Add a color on mouse-over */
-    ul.breadcrumb li a:hover {
+    .line {
+        margin-top: 17px;
+        width: 96px;
+        height: 4px;
+        background-color: #78be20;
+    }
+
+    .subtext {
+        margin-top: 26px;
+        font-size: 18px;
+        line-height: 27px;
+        color: #fff;
+    }
+
+    a.sublink {
+        font-size: 14px;
+        line-height: 20px;
         color: #fff;
         text-decoration: underline;
+
+        &:hover {
+            color: #fff;
+            text-decoration: none;
+        }
     }
+
 }
