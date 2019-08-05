@@ -139,7 +139,7 @@ header {
                     box-sizing: border-box;
                     border: 1px solid #a19ba2;
                     border-radius: 4px;
-                    margin: 3px 0 32px 0;
+                    margin: 3px 0;
 
                     &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
                         color: #a19ba2;
@@ -152,6 +152,18 @@ header {
                     &::-ms-input-placeholder { /* Microsoft Edge */
                         color: #a19ba2;
                     }
+
+                    &:focus {
+                        outline-color: #78be20;
+                    }
+                }
+                .form-warning {
+                    font-weight: bold;
+                    color:  #900;
+                    font-size: 12px;
+                    margin: 5px 0 16px 0;
+                    line-height: 18px;
+                    height: 18px;
                 }
             }
         }
