@@ -216,4 +216,24 @@ header {
             }
         }
     }
+
+}
+
+@media screen and (max-width: 1400px) {
+    .gradient {
+
+        .title-container {
+            margin: 0 0 0 16px;
+
+        }
+
+        .form-container {
+
+            position: absolute;
+            top: 280px;
+            left: 16px;
+            right: 16px;
+            padding: 24px 32px;
+        }
+    }
 }
