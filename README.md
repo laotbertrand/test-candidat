@@ -102,6 +102,4 @@ class myClass {
 - 15:00 - 17:00 : Gestion d'un deuxième module
 - 17:00 - 18:00 : Prise de recul sur le travail fourni, alimentation du REPORT.md et tests.
 
-## Correction du test
-- Votre travail va passer à travers une grille d'évaluation contenant une liste de critères répartis sur trois axes :
 
