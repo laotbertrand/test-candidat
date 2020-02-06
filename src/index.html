@@ -1,14 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Leroy Merlin</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
+<body>
+    <header id="header" role="banner">
+        <form id="search" role="search" class="body">
+        </form>
+    </header>
+    <section id="page" role="main">
+        <div id="corps">
+            <div>
+                <section>
+                    <nav role="navigation">
+                        <ul>
+                            <li>Accueil</li>
+                            <li>Services</li>
+                        </ul>
+                    </nav>
+                </section>
+                <section>
+                    <h2 class="ka-title">Découvrez votre offre</h2>
+                    <p>Réalisez votre simulation en 30sec</p>
+                    <hr />
+                    <form id="isolationForm" method="POST">
+                        <div class="form-group">
+                            <p>
+                                <label for="postCode">Code postal de votre logement à isoler</label>
+                                <input class="ka-input" type="text" id="postCode" name="postCode" required maxlength="5"
+                                    pattern="[0-9]*" placeholder="Ex : 75 000" />
+                                <span id="error_postCode" style="display: none;" aria-hidden="true">
+                                    Le code postal que vous avez saisi n'est pas valide et doit comporter cinq chiffres
+                                </span>
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <p>
+                                <label for="surface">Surface de combles à isoler (m²)</label>
+                                <input class="ka-input" type="number" id="surface" name="surface" required min="1" max="10000" placeholder="Ex : 200" />
+                                <span id="error_surface" style="display: none;" aria-hidden="true">
+                                    La surface que vous avez saisie n'est pas valide (doit être comprise en 1 et 10000 m2)
+                                </span>
+                            </p>
+                        </div>
+                        <ul>
+                            <li>
+                                <button class="ka-link" type="submit">SUIV</button>
+                            </li>
+                        </ul>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </section>
+    <footer role="contentinfo"></footer>
     <script async src="js/bundle.js"></script>
 </body>
+
 </html>
