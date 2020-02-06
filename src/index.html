@@ -16,7 +16,7 @@
     </header>
     <section id="page" role="main">
         <div id="corps">
-            <div>
+            <div class="col-container">
                 <section>
                     <nav role="navigation">
                         <ul>
@@ -25,33 +25,29 @@
                         </ul>
                     </nav>
                 </section>
-                <section>
-                    <h2 class="ka-title">Découvrez votre offre</h2>
-                    <p>Réalisez votre simulation en 30sec</p>
-                    <hr />
+                <section class="col-ie-offset-l-6 col-ie-offset-xl-6 col-ie-offset-xxl-6 -bg000 -borderRadius -boxShadow  -paddingTopL -paddingBottomS -paddingLeftL -paddingRightL col-start-m-3 col-m-8 col-start-l-8 col-l-5 col-start-xl-9 col-xl-4 col-start-xxl-9 col-xxl-4">
+                    <h2 id="title">Découvrez votre offre</h2>
+                    <p id="subtitle">Réalisez votre simulation en 30sec</p>
+                    <div class="lines"></div>
                     <form id="isolationForm" method="POST">
-                        <div class="form-group">
-                            <p>
-                                <label for="postCode">Code postal de votre logement à isoler</label>
-                                <input class="ka-input" type="text" id="postCode" name="postCode" required maxlength="5"
-                                    pattern="[0-9]*" placeholder="Ex : 75 000" />
-                                <span id="error_postCode" style="display: none;" aria-hidden="true">
-                                    Le code postal que vous avez saisi n'est pas valide et doit comporter cinq chiffres
-                                </span>
-                            </p>
-                        </div>
-                        <div class="form-group">
-                            <p>
-                                <label for="surface">Surface de combles à isoler (m²)</label>
-                                <input class="ka-input" type="number" id="surface" name="surface" required min="1" max="10000" placeholder="Ex : 200" />
-                                <span id="error_surface" style="display: none;" aria-hidden="true">
-                                    La surface que vous avez saisie n'est pas valide (doit être comprise en 1 et 10000 m2)
-                                </span>
-                            </p>
-                        </div>
+                        <p>
+                            <label for="postCode">Code postal de votre logement à isoler</label>
+                            <input class="ka-input" type="text" id="postCode" name="postCode" required maxlength="5"
+                                pattern="[0-9]*" placeholder="Ex : 75 000" />
+                            <span id="error_postCode" class="error" style="visibility: hidden;" aria-hidden="true">
+                                Le code postal que vous avez saisi n'est pas valide et doit comporter cinq chiffres
+                            </span>
+                        </p>
+                        <p>
+                            <label for="surface">Surface de combles à isoler (m²)</label>
+                            <input class="ka-input" type="number" id="surface" name="surface" required min="1" max="10000" placeholder="Ex : 200" />
+                            <span id="error_surface" class="error" style="visibility: hidden;" aria-hidden="true">
+                                La surface que vous avez saisie n'est pas valide (doit être comprise en 1 et 10000 m2)
+                            </span>
+                        </p>
                         <ul>
                             <li>
-                                <button class="ka-link" type="submit">SUIV</button>
+                                <button class="link" type="submit">SUIV</button>
                             </li>
                         </ul>
                     </form>

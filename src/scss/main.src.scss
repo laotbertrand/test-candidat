@@ -7,3 +7,76 @@
 @import "../../assets/sass/_common/10-bundles/item-tile.bundle";
 @import "../../assets/sass/_common/10-bundles/price.bundle";
 
+#header {
+  width: 1440px;
+  height: 112px;
+  background-color: #fff;
+  background-image: url("../../assets/images/header.png");
+}
+
+#corps {
+  width: 1440px;
+  height: 404px;
+  background-image: url("../../assets/images/bg.png");
+}
+
+#title {
+  width: 348px;
+  height: 30px;
+  font-size: 24px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+#subtitle {
+  width: 348px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  color: #515151;
+}
+
+.lines {
+  width: 96px;
+  height: 2px;
+  background-color: #78be20;
+}
+
+label {
+  width: 344px;
+  height: 17px;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #554f52;
+}
+
+.link {
+    width: 27px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: right;
+    color: #78be20;
+  }
+
+  .error {
+    font-size: 12px;
+    font-weight: bold;
+    color: red;
+  }

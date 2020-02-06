@@ -33,7 +33,7 @@
   function toggleErrorMessage(...args) {
     args.forEach(arg => {
       const element = document.querySelector(`#error_${arg.field}`);
-      element.style.display = !!arg.show ? 'block' : 'none';
+      element.style.visibility = !!arg.show ? 'visible' : 'hidden';
       element.setAttribute('aria-hidden', !arg.show);
     });
   }
