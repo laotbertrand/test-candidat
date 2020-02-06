@@ -2,15 +2,10 @@ import { lmFetch } from '../../assets/commons/_fetch';
 import { Popin } from '../../assets/commons/_popin.class';
 
 class Survey {
-  // Démarre le sondage
-  startSurvey() {
-    this.openModal();
-    this.getFirstQuestion();
-  }
-
   // Ouvre le sondage dans une nouvelle popin (modal Bootstrap)
-  openModal() {
-    new Popin({ content: "#surveyForm" });
+  startSurvey() {
+    this.popin = new Popin({ content: "#surveyForm" });
+    this.getFirstQuestion();
   }
 
   // Obtenir la première question
@@ -46,7 +41,7 @@ class Survey {
       if (!response) {
         finishSurvey();
       } else {
-      // Dans le cas contraire, on affiche la question
+        // Dans le cas contraire, on affiche la question
         insertQuestion(response);
       }
     });
@@ -59,6 +54,8 @@ class Survey {
     lmFetch({ url: 'http://.../api/results' }).then(response => {
       document.querySelector('#page').innerHTML = response;
     });
+
+    this.popin.close();
   }
 }
 
