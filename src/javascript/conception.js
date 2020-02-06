@@ -73,4 +73,4 @@ class Question {
 // Gestion des évènements
 const survey = new Survey();
 document.querySelector('#openQuestionFormButton').addEventListener('click', survey.startSurvey);
-document.querySelector('#questionForm').addEventListener('submit', survey.getNextQuestion);
+document.querySelector('#questionForm').onsubmit = survey.getNextQuestion;
