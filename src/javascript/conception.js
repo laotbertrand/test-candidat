@@ -1,3 +1,6 @@
+import { lmFetch } from '../../assets/commons/_fetch';
+import { Popin } from '../../assets/commons/_popin.class';
+
 class Survey {
   // Démarre le sondage
   startSurvey() {
@@ -7,13 +10,12 @@ class Survey {
 
   // Ouvre le sondage dans une nouvelle popin (modal Bootstrap)
   openModal() {
-    $('#formModal').modal();
+    new Popin({ content: "#surveyForm" });
   }
 
   // Obtenir la première question
   getFirstQuestion() {
-    const requestUrl = "http://.../api/startSurvey";
-    fetch(requestUrl).then(insertQuestion);
+    lmFetch({ url: 'http://.../api/startSurvey' }).then(insertQuestion);
   }
 
   // Insère la question dans la formulaire
@@ -22,7 +24,7 @@ class Survey {
     const question = new Question(response);
 
     // Stockage des informations dans un champs caché
-    var json = JSON.stringify(question);
+    const json = JSON.stringify(question);
     document.querySelector('#quest_hidden').value = json;
     document.querySelector('#quest_id').value = question.number;
 
@@ -35,13 +37,11 @@ class Survey {
 
   // Envoi la réponse et récupère la prochaine question
   getNextQuestion() {
-    var questionNumber = document.querySelector('#quest_id').value;
-    var answer = document.querySelector('input[name="quest_answer"]:checked').value;
-
-    const requestUrl = "http://.../api/nextQuestion";
+    const questionNumber = document.querySelector('#quest_id').value;
+    const answer = document.querySelector('input[name="quest_answer"]:checked').value;
     const body = { questionNumber, answer };
 
-    fetch(requestUrl, { method: 'POST', body }).then(response => {
+    lmFetch({ url: 'http://.../api/nextquestion', method: 'POST', body }).then(response => {
       // Si la réponse est nulle, on charge la page de résultats
       if (!response) {
         finishSurvey();
@@ -50,13 +50,13 @@ class Survey {
         insertQuestion(response);
       }
     });
+
+    return false; // pour éviter un rechargement de page
   }
 
   // Récupère la page de résultats
   finishSurvey() {
-    const requestUrl = "http://.../api/results";
-
-    fetch(requestUrl).then(response => {
+    lmFetch({ url: 'http://.../api/results' }).then(response => {
       document.querySelector('#page').innerHTML = response;
     });
   }
@@ -73,6 +73,7 @@ class Question {
   }
 }
 
-const mySurvey = new Survey();
-document.querySelector('#openFormButton').addEventListener('click', survey.startSurvey);
-document.querySelector('#openFormButton').addEventListener('submit', survey.startSurvey);
+// Gestion des évènements
+const survey = new Survey();
+document.querySelector('#openQuestionFormButton').addEventListener('click', survey.startSurvey);
+document.querySelector('#questionForm').addEventListener('submit', survey.getNextQuestion);
