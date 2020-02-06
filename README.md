@@ -57,7 +57,7 @@ Attentes :
     - Android 7 & 8 : Navigateur constructeur / Chrome
     - iOS : Safari 
 
-### 8. Conception javascript
+### 6. Conception javascript
 Le but de ce test n'est pas d'écrire intégralement un code Javascript fonctionnel mais plutôt de voir votre logique conceptuelle au niveau architecturelle et fonctionnelle de votre code. Vous pourrez utiliser le fichier _conception.js_ à cet effet.
 
 Vous trouverez à la suite, un mini descriptif fonctionnel d'un projet Leroy Merlin auquel vous devez imaginer la représentation technique, voici ce que l'on attend de ce test :
