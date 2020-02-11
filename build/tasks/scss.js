@@ -1,7 +1,7 @@
 const sass = require('node-sass');
 const fs = require('fs-extra');
 const colors = require('colors');
-const mkdirp = require('mkdirp')
+const mkdirp = require('mkdirp');
 
 module.exports.buildSass = () => {
 
